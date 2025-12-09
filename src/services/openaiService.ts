@@ -166,11 +166,11 @@ function buildRecipePrompt(
     "id": "unique-id",
     "name": "Recipe Name",
     "description": "Brief description",
-    "ingredients": ["ingredient 1", "ingredient 2"],
+    "ingredients": ["2 cups flour", "1 tablespoon olive oil", "3 large eggs"],
     "instructions": ["step 1", "step 2"],
     "prepTime": 10,
     "cookTime": 20,
-    "servings": 4,
+    "servings": ${preferences.servings},
     "difficulty": "Easy",
     "cuisineType": "Italian",
     "dietaryInfo": ["Vegetarian"],
@@ -179,11 +179,14 @@ function buildRecipePrompt(
       "calories": 350,
       "protein": 15,
       "carbs": 45,
-      "fat": 12
+      "fat": 12,
+      "fiber": 5
     }
   }]`);
 
-  parts.push('\nMake recipes creative, practical, and tailored to the user\'s mood and energy level.');
+  parts.push(`\nIMPORTANT: Include specific quantities in all ingredients (e.g., "2 cups", "1 tablespoon", "3 large") adjusted for exactly ${preferences.servings} ${preferences.servings === 1 ? "person" : "people"}.`);
+  parts.push('All ingredient measurements must be precise and appropriate for the servings count.');
+  parts.push('Make recipes creative, practical, and tailored to the user\'s mood and energy level.');
 
   return parts.join('\n');
 }

@@ -20,6 +20,7 @@ const RecipeForm = () => {
   const [dietaryRestrictions, setDietaryRestrictions] = useState<string[]>([]);
   const [cuisine, setCuisine] = useState('');
   const [cookingTime, setCookingTime] = useState('');
+  const [servings, setServings] = useState(4);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
@@ -109,7 +110,7 @@ const RecipeForm = () => {
         moodLevel: mood,
         energyLevel: energy,
         cookingTime: parseInt(cookingTime) || 60,
-        servings: 4
+        servings: servings
       }, user?.id);
 
       setRecipes(recipesData);
@@ -249,6 +250,43 @@ const RecipeForm = () => {
                         </button>
                       ))}
                     </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Number of People to Serve
+                    </label>
+                    <div className="flex items-center gap-4">
+                      <button
+                        type="button"
+                        onClick={() => setServings(Math.max(1, servings - 1))}
+                        disabled={servings <= 1}
+                        className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+                        </svg>
+                      </button>
+                      <div className="flex-1 text-center">
+                        <span className="text-3xl font-bold text-gray-900">{servings}</span>
+                        <span className="text-sm text-gray-600 ml-2">
+                          {servings === 1 ? 'person' : 'people'}
+                        </span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setServings(Math.min(12, servings + 1))}
+                        disabled={servings >= 12}
+                        className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                        </svg>
+                      </button>
+                    </div>
+                    <p className="mt-2 text-xs text-gray-500 text-center">
+                      Ingredient quantities will be adjusted for {servings} {servings === 1 ? 'person' : 'people'}
+                    </p>
                   </div>
                 </div>
               </Card>
