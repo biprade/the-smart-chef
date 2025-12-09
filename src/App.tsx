@@ -1,73 +1,48 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 import { ToastProvider } from './contexts/ToastContext';
-import HomePage from './components/Pages/HomePage';
-import Login from './components/Auth/Login';
-import Register from './components/Auth/Register';
-import Dashboard from './components/Dashboard/Dashboard';
-import Profile from './components/Pages/Profile';
-import SavedRecipes from './components/Pages/SavedRecipes';
-import HealthIntegration from './components/Pages/HealthIntegration';
-import FoodDeliveryIntegration from './components/Pages/FoodDeliveryIntegration';
-import './styles/index.css';
+import { ProtectedRoute } from './components/Auth';
+import LoadingSpinner from './components/Common/LoadingSpinner';
 
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { user, loading } = useAuth();
+const HomePage = lazy(() => import('./components/Pages/HomePage'));
+const Login = lazy(() => import('./components/Auth/Login'));
+const Register = lazy(() => import('./components/Auth/Register'));
+const OnboardingFlow = lazy(() => import('./components/Onboarding/OnboardingFlow'));
+const Dashboard = lazy(() => import('./components/Dashboard/Dashboard'));
+const RecipeForm = lazy(() => import('./components/RecipeRecommendation/RecipeForm'));
+const SavedRecipes = lazy(() => import('./components/Pages/SavedRecipes'));
+const Profile = lazy(() => import('./components/Pages/Profile'));
+const HealthIntegration = lazy(() => import('./components/Pages/HealthIntegration'));
+const FoodDeliveryIntegration = lazy(() => import('./components/Pages/FoodDeliveryIntegration'));
+const NotFoundPage = lazy(() => import('./components/Pages/NotFoundPage'));
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sage-dark"></div>
-      </div>
-    );
-  }
-
-  if (!user) {
-    return <Navigate to="/login" replace />;
-  }
-
-  return <>{children}</>;
-};
-
-const PublicRoute = ({ children }: { children: React.ReactNode }) => {
-  const { user, loading } = useAuth();
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sage-dark"></div>
-      </div>
-    );
-  }
-
-  if (user) {
-    return <Navigate to="/dashboard" replace />;
-  }
-
-  return <>{children}</>;
-};
+const LoadingFallback = () => (
+  <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="text-center">
+      <LoadingSpinner size="large" />
+      <p className="mt-4 text-gray-600">Loading...</p>
+    </div>
+  </div>
+);
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <AuthProvider>
         <ToastProvider>
-          <Routes>
+          <Suspense fallback={<LoadingFallback />}>
+          <div className="app-layout">
+            <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route
-              path="/login"
+              path="/onboarding"
               element={
-                <PublicRoute>
-                  <Login />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/register"
-              element={
-                <PublicRoute>
-                  <Register />
-                </PublicRoute>
+                <ProtectedRoute>
+                  <OnboardingFlow />
+                </ProtectedRoute>
               }
             />
             <Route
@@ -79,18 +54,26 @@ function App() {
               }
             />
             <Route
-              path="/profile"
+              path="/recipes"
               element={
                 <ProtectedRoute>
-                  <Profile />
+                  <RecipeForm />
                 </ProtectedRoute>
               }
             />
             <Route
-              path="/saved-recipes"
+              path="/saved"
               element={
                 <ProtectedRoute>
                   <SavedRecipes />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
                 </ProtectedRoute>
               }
             />
@@ -110,11 +93,14 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
+        </div>
+          </Suspense>
         </ToastProvider>
       </AuthProvider>
-    </Router>
+    </BrowserRouter>
   );
 }
 
-export default App
+export default App;

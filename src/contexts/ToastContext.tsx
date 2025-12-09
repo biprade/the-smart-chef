@@ -1,6 +1,5 @@
-import { createContext, useContext, useState, useCallback } from 'react';
-import type { ReactNode } from 'react';
-import Toast, { type ToastType } from '../components/Common/Toast';
+import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import Toast, { ToastType } from '../components/Common/Toast';
 
 interface ToastMessage {
   id: number;

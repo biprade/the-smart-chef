@@ -7,7 +7,7 @@ import DashboardLayout from '../Dashboard/DashboardLayout';
 import Card from '../Common/Card';
 import Button from '../Common/Button';
 import Input from '../Common/Input';
-import type { Recipe } from '../../types/recipe';
+import { Recipe } from '../../types/recipe';
 import RecipeDetail from '../RecipeRecommendation/RecipeDetail';
 
 interface UserProfile {

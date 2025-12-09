@@ -1,4 +1,6 @@
-:root {
+@import "tailwindcss/theme" layer(theme);
+
+@theme {
   --color-sage: #8DA399;
   --color-sage-dark: #6b8177;
   --color-sage-light: #b5c9c1;
