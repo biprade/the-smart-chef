@@ -218,7 +218,7 @@ const RecipeForm = () => {
                     <select
                       value={cuisine}
                       onChange={(e) => setCuisine(e.target.value)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sage focus:border-sage"
                     >
                       <option value="">Select cuisine type...</option>
                       {cuisineOptions.map((option) => (
@@ -241,7 +241,7 @@ const RecipeForm = () => {
                           onClick={() => setCookingTime(option.value)}
                           className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                             cookingTime === option.value
-                              ? 'bg-blue-500 text-white'
+                              ? 'bg-sage text-white'
                               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                           }`}
                         >

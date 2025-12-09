@@ -20,7 +20,7 @@ const Dashboard = () => {
           </div>
 
           <div className="space-y-6 animate-slideUp stagger-1">
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <div className="bg-beige-light rounded-lg shadow-sm border border-beige-dark p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
               <div className="space-y-3">
                 <button
@@ -54,10 +54,10 @@ const Dashboard = () => {
                   </div>
                 </button>
 
-                <button className="w-full text-left px-4 py-3 rounded-lg border border-gray-200 hover:border-purple-500 hover:bg-purple-50 transition-all duration-200 group">
+                <button className="w-full text-left px-4 py-3 rounded-lg border border-gray-200 hover:border-sage hover:bg-sage/10 transition-all duration-200 group">
                   <div className="flex items-center">
-                    <div className="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center group-hover:bg-purple-200 transition-colors">
-                      <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-10 h-10 bg-sage/20 rounded-lg flex items-center justify-center group-hover:bg-sage/30 transition-colors">
+                      <svg className="w-5 h-5 text-sage-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                       </svg>
                     </div>

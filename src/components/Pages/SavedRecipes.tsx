@@ -172,7 +172,7 @@ const SavedRecipes = () => {
         <div className="mb-8 animate-fadeIn">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Saved Recipes</h1>
           <p className="text-gray-600">
-            <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+            <span className="inline-flex items-center px-3 py-1 bg-sage/20 text-sage-dark rounded-full text-sm font-medium">
               {savedRecipes.length} {savedRecipes.length === 1 ? 'recipe' : 'recipes'}
             </span>
           </p>
@@ -186,8 +186,8 @@ const SavedRecipes = () => {
                 onClick={() => applyFilter(filter.id)}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                   activeFilter === filter.id
-                    ? 'bg-blue-600 text-white shadow-md'
-                    : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-blue-600'
+                    ? 'bg-sage-dark text-white shadow-md'
+                    : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-sage'
                 }`}
               >
                 <span className="mr-2">{filter.icon}</span>
@@ -252,7 +252,7 @@ const SavedRecipes = () => {
                     </div>
                     <div className="text-center">
                       <div className="text-xs text-gray-500 mb-1">Cooked</div>
-                      <div className="text-sm font-semibold text-blue-600">
+                      <div className="text-sm font-semibold text-sage-dark">
                         {saved.cooked_count}x
                       </div>
                     </div>

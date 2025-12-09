@@ -202,7 +202,7 @@ const Profile = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-center justify-center min-h-[400px]">
             <div className="text-center">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-sage-dark mb-4"></div>
               <p className="text-gray-600">Loading your profile...</p>
             </div>
           </div>
@@ -262,7 +262,7 @@ const Profile = () => {
 
               {aiProfile ? (
                 <div>
-                  <div className="bg-blue-50 border-l-4 border-blue-600 p-4 mb-4">
+                  <div className="bg-sage/10 border-l-4 border-sage-dark p-4 mb-4">
                     <p className="text-gray-800 leading-relaxed whitespace-pre-line">
                       {aiProfile.personality_profile}
                     </p>
@@ -326,13 +326,13 @@ const Profile = () => {
                     {(editMode ? editedProfile : profile)?.cuisine_preferences.map((cuisine, idx) => (
                       <span
                         key={idx}
-                        className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800"
+                        className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-sage/20 text-sage-dark"
                       >
                         {cuisine}
                         {editMode && (
                           <button
                             onClick={() => handleRemoveCuisine(cuisine)}
-                            className="ml-2 text-blue-600 hover:text-blue-800"
+                            className="ml-2 text-sage-dark hover:text-sage-dark"
                           >
                             ×
                           </button>
@@ -410,7 +410,7 @@ const Profile = () => {
                               health_goals: { ...prev.health_goals, weightManagement: e.target.value }
                             } : null)
                           }
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sage"
                         >
                           <option value="">Select goal</option>
                           <option value="lose">Lose weight</option>
@@ -428,7 +428,7 @@ const Profile = () => {
                               health_goals: { ...prev.health_goals, energyLevel: e.target.value }
                             } : null)
                           }
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sage"
                         >
                           <option value="">Select goal</option>
                           <option value="boost">Boost energy</option>

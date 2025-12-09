@@ -103,9 +103,9 @@ const RecipeFeedback = ({ recipe, isOpen, onClose, onSubmit }: RecipeFeedbackPro
             </button>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-6">
+          <div className="bg-gradient-to-r from-sage-dark to-sage-dark px-8 py-6">
             <h2 className="text-2xl font-bold text-white mb-2">Rate Your Experience</h2>
-            <p className="text-blue-100">{recipe.title}</p>
+            <p className="text-beige-light">{recipe.title}</p>
           </div>
 
           <div className="px-8 py-6 space-y-6">
@@ -169,14 +169,14 @@ const RecipeFeedback = ({ recipe, isOpen, onClose, onSubmit }: RecipeFeedbackPro
                         onClick={() => handleAspectToggle(option.id)}
                         className={`flex items-center p-3 rounded-lg border-2 transition-all ${
                           likedAspects.includes(option.id)
-                            ? 'border-blue-600 bg-blue-50 text-blue-900'
+                            ? 'border-sage-dark bg-sage/10 text-brand-black'
                             : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
                         }`}
                       >
                         <div
                           className={`w-5 h-5 rounded border-2 flex items-center justify-center mr-3 ${
                             likedAspects.includes(option.id)
-                              ? 'border-blue-600 bg-blue-600'
+                              ? 'border-sage-dark bg-sage-dark'
                               : 'border-gray-300'
                           }`}
                         >
@@ -215,7 +215,7 @@ const RecipeFeedback = ({ recipe, isOpen, onClose, onSubmit }: RecipeFeedbackPro
                     onChange={(e) => setImprovements(e.target.value)}
                     placeholder="Share your thoughts on how we could make this recipe better..."
                     rows={4}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:ring-0 transition-colors resize-none"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-sage-dark focus:ring-0 transition-colors resize-none"
                   />
                   <p className="mt-1 text-xs text-gray-500">Optional</p>
                 </div>

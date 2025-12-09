@@ -9,7 +9,7 @@ interface CardProps {
 const Card = ({ children, className = '', onClick }: CardProps) => {
   return (
     <div
-      className={`bg-white rounded-2xl shadow-sm border border-beige-dark p-8 hover:border-sage hover:shadow-lg transition-all ${className}`}
+      className={`bg-beige-light rounded-2xl shadow-sm border border-beige-dark p-8 hover:border-sage hover:shadow-lg transition-all ${className}`}
       onClick={onClick}
     >
       {children}

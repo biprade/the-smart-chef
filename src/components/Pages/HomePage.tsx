@@ -112,7 +112,7 @@ const HomePage = () => {
                 { icon: '😊', title: 'Mood-Based', desc: 'Recipes that match your current mood and energy level' },
                 { icon: '📊', title: 'Personalized', desc: 'Learns your preferences and dietary restrictions' }
               ].map((item, idx) => (
-                <div key={idx} className="bg-white rounded-2xl p-8 border border-beige-dark hover:border-sage transition-all hover:shadow-lg">
+                <div key={idx} className="bg-beige-light rounded-2xl p-8 border border-beige-dark hover:border-sage transition-all hover:shadow-lg">
                   <div className="text-5xl mb-4">{item.icon}</div>
                   <h3 className="text-xl font-bold text-brand-black mb-3">{item.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{item.desc}</p>
@@ -122,7 +122,7 @@ const HomePage = () => {
           </div>
         </section>
 
-        <section className="bg-white py-28">
+        <section className="bg-beige-light py-28">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-20">
               <h2 className="text-4xl sm:text-5xl font-bold text-brand-black mb-6">
@@ -217,7 +217,7 @@ const HomePage = () => {
                   icon: '🧠'
                 }
               ].map((feature, index) => (
-                <div key={index} className="bg-white rounded-2xl p-8 border border-beige-dark hover:border-sage transition-all hover:shadow-lg">
+                <div key={index} className="bg-beige-light rounded-2xl p-8 border border-beige-dark hover:border-sage transition-all hover:shadow-lg">
                   <div className="text-5xl mb-4">{feature.icon}</div>
                   <h3 className="text-xl font-bold text-brand-black mb-3">{feature.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{feature.description}</p>

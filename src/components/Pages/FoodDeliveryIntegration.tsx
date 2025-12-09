@@ -44,7 +44,7 @@ const ServiceCard = ({ name, icon, description, integration, features, onConnect
             )}
           </div>
         </div>
-        <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
+        <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-sage/20 text-sage-dark">
           Coming Soon
         </span>
       </div>
@@ -211,7 +211,7 @@ const FoodDeliveryIntegration = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-center justify-center min-h-[400px] animate-fadeIn">
             <div className="text-center">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-sage-dark mb-4"></div>
               <p className="text-gray-600">Loading delivery services...</p>
             </div>
           </div>
@@ -230,16 +230,16 @@ const FoodDeliveryIntegration = () => {
           </p>
         </div>
 
-        <div className="bg-blue-50 border-l-4 border-blue-600 p-4 mb-8 animate-slideDown">
+        <div className="bg-sage/10 border-l-4 border-sage-dark p-4 mb-8 animate-slideDown">
           <div className="flex">
             <div className="flex-shrink-0">
-              <svg className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+              <svg className="h-5 w-5 text-sage-dark" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
               </svg>
             </div>
             <div className="ml-3">
-              <h3 className="text-sm font-medium text-blue-800">Feature Preview</h3>
-              <p className="mt-1 text-sm text-blue-700">
+              <h3 className="text-sm font-medium text-sage-dark">Feature Preview</h3>
+              <p className="mt-1 text-sm text-sage-dark">
                 These integrations are coming soon! Once connected, you'll be able to add all recipe ingredients
                 to your cart with a single click and have them delivered to your door.
               </p>
@@ -267,7 +267,7 @@ const FoodDeliveryIntegration = () => {
             <h2 className="text-xl font-semibold text-gray-900 mb-4">How It Works</h2>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-semibold">
+                <div className="flex-shrink-0 w-8 h-8 bg-sage/20 rounded-full flex items-center justify-center text-sage-dark font-semibold">
                   1
                 </div>
                 <div>
@@ -278,7 +278,7 @@ const FoodDeliveryIntegration = () => {
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-semibold">
+                <div className="flex-shrink-0 w-8 h-8 bg-sage/20 rounded-full flex items-center justify-center text-sage-dark font-semibold">
                   2
                 </div>
                 <div>
@@ -289,7 +289,7 @@ const FoodDeliveryIntegration = () => {
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-semibold">
+                <div className="flex-shrink-0 w-8 h-8 bg-sage/20 rounded-full flex items-center justify-center text-sage-dark font-semibold">
                   3
                 </div>
                 <div>
@@ -300,7 +300,7 @@ const FoodDeliveryIntegration = () => {
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-semibold">
+                <div className="flex-shrink-0 w-8 h-8 bg-sage/20 rounded-full flex items-center justify-center text-sage-dark font-semibold">
                   4
                 </div>
                 <div>
