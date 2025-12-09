@@ -182,72 +182,23 @@ const HealthIntegration = () => {
         <div className="mb-8 animate-fadeIn">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Health Integrations</h1>
           <p className="text-gray-600">
-            Connect your health apps to help us understand your lifestyle and personalize your recipe feed.
+            Connect your health apps to get personalized recipe recommendations based on your activity,
+            sleep, and nutrition data.
           </p>
         </div>
 
-        <Card className="mb-8 bg-gradient-to-r from-sage/5 to-green-50 border-sage/20">
-          <div className="flex items-start space-x-4">
-            <div className="flex-shrink-0 text-3xl">🧠</div>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-900 mb-2">How We Use Your Health Data</h2>
-              <p className="text-gray-700 mb-3">
-                Your health data helps us build a deeper understanding of your lifestyle and create a truly personalized cooking experience.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex items-start space-x-2">
-                  <svg className="h-5 w-5 text-sage-dark mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <div>
-                    <h3 className="font-medium text-gray-900 text-sm">Learn Your Patterns</h3>
-                    <p className="text-xs text-gray-600">Understand when you're most active and need energy-rich meals</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <svg className="h-5 w-5 text-sage-dark mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <div>
-                    <h3 className="font-medium text-gray-900 text-sm">Smart Recommendations</h3>
-                    <p className="text-xs text-gray-600">Suggest what to eat or avoid based on your health metrics and goals</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <svg className="h-5 w-5 text-sage-dark mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <div>
-                    <h3 className="font-medium text-gray-900 text-sm">Personalized Feed</h3>
-                    <p className="text-xs text-gray-600">Refine your recipe feed based on your activity levels and recovery needs</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <svg className="h-5 w-5 text-sage-dark mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <div>
-                    <h3 className="font-medium text-gray-900 text-sm">Build Your Food Personality</h3>
-                    <p className="text-xs text-gray-600">Help us understand your lifestyle to match recipes to your unique needs</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Card>
-
-        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8 animate-slideDown">
+        <div className="bg-sage/10 border-l-4 border-sage-dark p-4 mb-8 animate-slideDown">
           <div className="flex">
             <div className="flex-shrink-0">
-              <svg className="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+              <svg className="h-5 w-5 text-sage-dark" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
               </svg>
             </div>
             <div className="ml-3">
-              <h3 className="text-sm font-medium text-blue-800">Feature Preview</h3>
-              <p className="mt-1 text-sm text-blue-700">
-                These integrations are coming soon! Once connected, we'll analyze your health data to learn your patterns,
-                understand your food personality, and continuously refine your personalized recipe recommendations.
+              <h3 className="text-sm font-medium text-sage-dark">Feature Preview</h3>
+              <p className="mt-1 text-sm text-sage-dark">
+                These integrations are coming soon! Once connected, the app will use your health data
+                to recommend recipes that match your energy levels, activity, and nutritional needs.
               </p>
             </div>
           </div>
@@ -273,27 +224,27 @@ const HealthIntegration = () => {
             <div className="flex items-start space-x-3">
               <div className="flex-shrink-0 text-2xl">⚡</div>
               <div>
-                <h3 className="font-medium text-gray-900 mb-1">Personalized Energy Recommendations</h3>
+                <h3 className="font-medium text-gray-900 mb-1">Energy-Based Recommendations</h3>
                 <p className="text-sm text-gray-600">
-                  We'll learn when you're most active and suggest recipes that fuel you at the right times, making your feed smarter every day.
+                  Get recipe suggestions that match your current energy levels from activity and sleep data.
                 </p>
               </div>
             </div>
             <div className="flex items-start space-x-3">
               <div className="flex-shrink-0 text-2xl">🎯</div>
               <div>
-                <h3 className="font-medium text-gray-900 mb-1">Smart Food Guidance</h3>
+                <h3 className="font-medium text-gray-900 mb-1">Goal-Oriented Meals</h3>
                 <p className="text-sm text-gray-600">
-                  Based on your health metrics, we'll recommend what to eat to fuel your goals and what to avoid for optimal wellness.
+                  Receive recipes aligned with your fitness and health goals tracked in your apps.
                 </p>
               </div>
             </div>
             <div className="flex items-start space-x-3">
               <div className="flex-shrink-0 text-2xl">📈</div>
               <div>
-                <h3 className="font-medium text-gray-900 mb-1">Adaptive Feed</h3>
+                <h3 className="font-medium text-gray-900 mb-1">Nutritional Balance</h3>
                 <p className="text-sm text-gray-600">
-                  Your recipe feed evolves with you, learning your patterns and adapting to your changing health and fitness journey.
+                  Balance your nutrition based on your daily calorie burn and macro targets.
                 </p>
               </div>
             </div>
