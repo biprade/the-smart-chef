@@ -226,22 +226,72 @@ const FoodDeliveryIntegration = () => {
         <div className="mb-8 animate-fadeIn">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Food Delivery Integrations</h1>
           <p className="text-gray-600">
-            Connect your favorite grocery delivery services to order recipe ingredients with just one click.
+            Connect your delivery services to learn your preferences and get smarter recipe recommendations.
           </p>
         </div>
 
-        <div className="bg-sage/10 border-l-4 border-sage-dark p-4 mb-8 animate-slideDown">
+        <Card className="mb-8 bg-gradient-to-r from-orange-50 to-amber-50 border-orange-200">
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0 text-3xl">🎯</div>
+            <div>
+              <h2 className="text-lg font-semibold text-gray-900 mb-2">How We Learn from Your Orders</h2>
+              <p className="text-gray-700 mb-3">
+                By analyzing your food delivery history, we discover your taste preferences and create a personalized recipe feed that matches what you love.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex items-start space-x-2">
+                  <svg className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <div>
+                    <h3 className="font-medium text-gray-900 text-sm">Discover Your Favorites</h3>
+                    <p className="text-xs text-gray-600">Identify patterns in your orders to understand your favorite cuisines and ingredients</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <svg className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <div>
+                    <h3 className="font-medium text-gray-900 text-sm">Similar Recipes</h3>
+                    <p className="text-xs text-gray-600">Recommend recipes similar to dishes you frequently order</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <svg className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <div>
+                    <h3 className="font-medium text-gray-900 text-sm">Understand Your Personality</h3>
+                    <p className="text-xs text-gray-600">Build a flavor profile that captures your unique food personality</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <svg className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <div>
+                    <h3 className="font-medium text-gray-900 text-sm">Smarter Feed</h3>
+                    <p className="text-xs text-gray-600">Your recipe feed gets better over time as we learn what you enjoy most</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8 animate-slideDown">
           <div className="flex">
             <div className="flex-shrink-0">
-              <svg className="h-5 w-5 text-sage-dark" viewBox="0 0 20 20" fill="currentColor">
+              <svg className="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
               </svg>
             </div>
             <div className="ml-3">
-              <h3 className="text-sm font-medium text-sage-dark">Feature Preview</h3>
-              <p className="mt-1 text-sm text-sage-dark">
-                These integrations are coming soon! Once connected, you'll be able to add all recipe ingredients
-                to your cart with a single click and have them delivered to your door.
+              <h3 className="text-sm font-medium text-blue-800">Feature Preview</h3>
+              <p className="mt-1 text-sm text-blue-700">
+                These integrations are coming soon! Once connected, we'll analyze your order history to understand your taste preferences,
+                learn what you love, and personalize your recipe feed with similar dishes you'll enjoy. Plus, add ingredients to your cart with one click!
               </p>
             </div>
           </div>
@@ -319,36 +369,36 @@ const FoodDeliveryIntegration = () => {
               <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0 text-2xl">⏱️</div>
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-1">Save Time</h3>
+                  <h3 className="font-medium text-gray-900 mb-1">Learn Your Tastes</h3>
                   <p className="text-sm text-gray-600">
-                    Skip the grocery store trip and get everything delivered while you focus on cooking.
+                    We analyze your order patterns to understand your preferences and suggest recipes you'll love.
                   </p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0 text-2xl">💰</div>
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-1">Better Prices</h3>
+                  <h3 className="font-medium text-gray-900 mb-1">Discover Similar Recipes</h3>
                   <p className="text-sm text-gray-600">
-                    Compare prices across services and get the best deals on ingredients.
+                    Get recommendations for recipes similar to dishes you frequently order from your favorite restaurants.
                   </p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0 text-2xl">✅</div>
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-1">No Missing Items</h3>
+                  <h3 className="font-medium text-gray-900 mb-1">Personalized Feed</h3>
                   <p className="text-sm text-gray-600">
-                    Ensure you have everything you need with automated ingredient lists.
+                    Your recipe feed becomes uniquely yours, refined by your actual ordering behavior and food choices.
                   </p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0 text-2xl">🌱</div>
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-1">Fresh & Quality</h3>
+                  <h3 className="font-medium text-gray-900 mb-1">One-Click Convenience</h3>
                   <p className="text-sm text-gray-600">
-                    Choose services that guarantee fresh, high-quality ingredients.
+                    Order all recipe ingredients instantly and get them delivered while we learn what you enjoy most.
                   </p>
                 </div>
               </div>
