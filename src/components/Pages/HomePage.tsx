@@ -19,9 +19,8 @@ const HomePage = () => {
       <nav className="sticky top-0 z-50 bg-white border-b border-beige">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate('/')}>
-              <img src="/logo.jpg" alt="The Smart Chef" className="h-12 w-12 rounded-lg object-cover" />
-              <span className="text-xl font-bold text-brand-black">The Smart Chef</span>
+            <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate('/')}>
+              <img src="/logo-brand.jpg" alt="The Smart Chef" className="h-14 w-auto" />
             </div>
 
             <div className="flex items-center space-x-4">
@@ -61,7 +60,7 @@ const HomePage = () => {
 
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-brand-black mb-8 leading-tight">
                 Personalized Recipes Based on
-                <span className="block text-sage mt-2">Your Health, Fridge & Life</span>
+                <span className="block text-sage mt-2">Your Health, Favorite Ingredients & Life</span>
               </h1>
 
               <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-12 leading-relaxed">
@@ -250,11 +249,11 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-2">
               <div className="mb-6">
-                <img src="/logo-full.jpg" alt="The Smart Chef" className="h-20 w-auto mb-4" />
+                <img src="/logo-brand.jpg" alt="The Smart Chef" className="h-20 w-auto mb-4" />
               </div>
               <p className="text-gray-400 leading-relaxed text-base max-w-md">
                 Your AI-powered cooking companion that helps you discover perfect recipes
-                based on your health, your fridge, and your life.
+                based on your health, your favorite ingredients, and your life.
               </p>
             </div>
 

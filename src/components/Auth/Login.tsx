@@ -57,7 +57,7 @@ const Login = () => {
         <div className="bg-beige-light rounded-2xl border border-beige-dark p-10 shadow-lg">
           <div className="text-center mb-10">
             <Link to="/" className="inline-flex flex-col items-center justify-center mb-8">
-              <img src="/logo-full.jpg" alt="The Smart Chef" className="h-24 w-auto mb-2" />
+              <img src="/logo-brand.jpg" alt="The Smart Chef" className="h-24 w-auto mb-2" />
             </Link>
             <h2 className="text-3xl font-bold text-brand-black">Welcome back</h2>
             <p className="mt-2 text-gray-600">Sign in to your account</p>
