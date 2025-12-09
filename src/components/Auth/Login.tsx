@@ -1,4 +1,5 @@
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState } from 'react';
+import type { FormEvent, ChangeEvent } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { validateEmail } from '../../utils/validation';
@@ -40,15 +41,13 @@ const Login = () => {
 
     setLoading(true);
 
-    const { error } = await signIn(email, password);
-
-    if (error) {
-      setErrors({ general: error.message });
+    try {
+      await signIn(email, password);
+      navigate('/dashboard');
+    } catch (error: any) {
+      setErrors({ general: error.message || 'Failed to sign in' });
       setLoading(false);
-      return;
     }
-
-    navigate('/dashboard');
   };
 
   return (
