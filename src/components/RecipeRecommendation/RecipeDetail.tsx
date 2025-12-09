@@ -151,7 +151,9 @@ const RecipeDetail = ({ recipe, isOpen, onClose, onSave, isSaved = false, curren
       await updateUserProfileFromFeedback(user.id, {
         rating: feedback.rating,
         liked_aspects: feedback.likedAspects,
-        feedback_text: feedback.improvements
+        feedback_text: feedback.improvements,
+        recipe: recipe,
+        mood: currentMood
       });
     } catch (error) {
       console.error('Failed to update profile from feedback:', error);
