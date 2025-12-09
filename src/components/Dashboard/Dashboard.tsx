@@ -40,7 +40,10 @@ const Dashboard = () => {
                   </div>
                 </button>
 
-                <button className="w-full text-left px-4 py-3 rounded-lg border border-gray-200 hover:border-green-500 hover:bg-green-50 transition-all duration-200 group">
+                <button
+                  onClick={() => navigate('/recipes')}
+                  className="w-full text-left px-4 py-3 rounded-lg border border-gray-200 hover:border-green-500 hover:bg-green-50 transition-all duration-200 group"
+                >
                   <div className="flex items-center">
                     <div className="flex-shrink-0 w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors">
                       <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,7 +57,10 @@ const Dashboard = () => {
                   </div>
                 </button>
 
-                <button className="w-full text-left px-4 py-3 rounded-lg border border-gray-200 hover:border-sage hover:bg-sage/10 transition-all duration-200 group">
+                <button
+                  onClick={() => navigate('/saved')}
+                  className="w-full text-left px-4 py-3 rounded-lg border border-gray-200 hover:border-sage hover:bg-sage/10 transition-all duration-200 group"
+                >
                   <div className="flex items-center">
                     <div className="flex-shrink-0 w-10 h-10 bg-sage/20 rounded-lg flex items-center justify-center group-hover:bg-sage/30 transition-colors">
                       <svg className="w-5 h-5 text-sage-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
