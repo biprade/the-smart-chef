@@ -70,11 +70,11 @@ const FeaturedRecipes = () => {
 
     const { data, error } = await supabase
       .from('saved_recipes')
-      .select('recipe_data')
+      .select('recipe_json')
       .eq('user_id', user.id);
 
     if (!error && data) {
-      const ids = new Set(data.map((item: any) => item.recipe_data.id));
+      const ids = new Set(data.map((item: any) => item.recipe_json?.id).filter(Boolean));
       setSavedRecipeIds(ids);
     }
   };
@@ -140,11 +140,14 @@ const FeaturedRecipes = () => {
       .from('saved_recipes')
       .insert({
         user_id: user.id,
-        recipe_data: recipe
+        recipe_name: recipe.title,
+        recipe_json: recipe,
+        cooked_count: 0,
+        saved_at: new Date().toISOString()
       });
 
     if (error) {
-      throw new Error(`Failed to save recipe: ${error.message}`);
+      throw new Error('Failed to save recipe');
     }
 
     setSavedRecipeIds(prev => new Set(prev).add(recipe.id));
