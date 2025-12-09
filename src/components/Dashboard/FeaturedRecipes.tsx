@@ -186,7 +186,7 @@ const FeaturedRecipes = () => {
               </div>
             </div>
 
-            <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-sage-dark transition-colors">
               {recipe.title}
             </h3>
 
@@ -211,7 +211,7 @@ const FeaturedRecipes = () => {
                 </svg>
                 <span>{recipe.prepTime}</span>
               </div>
-              <span className="text-blue-600 font-medium">{recipe.cuisine}</span>
+              <span className="text-sage-dark font-medium">{recipe.cuisine}</span>
             </div>
           </Card>
         ))}
