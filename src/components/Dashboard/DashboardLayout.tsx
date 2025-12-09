@@ -37,9 +37,8 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
-              <div className="flex items-center space-x-3">
-                <img src="/logo.jpg" alt="The Smart Chef" className="h-14 w-auto" />
-                <h1 className="text-xl font-bold text-gray-900">The Smart Chef</h1>
+              <div className="flex items-center cursor-pointer" onClick={() => navigate('/dashboard')}>
+                <img src="/logo.jpg" alt="The Smart Chef" className="h-12 w-12 rounded-lg object-cover" />
               </div>
               <div className="hidden md:flex space-x-1">
                 {navItems.map(item => (

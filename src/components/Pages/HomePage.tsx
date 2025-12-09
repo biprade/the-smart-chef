@@ -19,9 +19,9 @@ const HomePage = () => {
       <nav className="sticky top-0 z-50 bg-white border-b border-beige">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-3">
-              <img src="/logo.jpg" alt="The Smart Chef" className="h-16 w-auto" />
-              <span className="text-2xl font-bold text-brand-black">The Smart Chef</span>
+            <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate('/')}>
+              <img src="/logo.jpg" alt="The Smart Chef" className="h-12 w-12 rounded-lg object-cover" />
+              <span className="text-xl font-bold text-brand-black">The Smart Chef</span>
             </div>
 
             <div className="flex items-center space-x-4">
@@ -249,9 +249,8 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center space-x-3 mb-6">
-                <img src="/logo.jpg" alt="The Smart Chef" className="h-16 w-auto" />
-                <span className="text-2xl font-bold">The Smart Chef</span>
+              <div className="mb-6">
+                <img src="/logo-full.jpg" alt="The Smart Chef" className="h-20 w-auto mb-4" />
               </div>
               <p className="text-gray-400 leading-relaxed text-base max-w-md">
                 Your AI-powered cooking companion that helps you discover perfect recipes

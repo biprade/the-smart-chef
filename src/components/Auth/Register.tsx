@@ -67,11 +67,8 @@ const Register = () => {
       <div className="max-w-md w-full">
         <div className="bg-beige-light rounded-2xl border border-beige-dark p-10 shadow-lg">
           <div className="text-center mb-10">
-            <Link to="/" className="inline-flex items-center justify-center space-x-2 mb-8">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-sage">
-                <span className="text-white text-2xl">🍳</span>
-              </div>
-              <span className="text-2xl font-bold text-brand-black">RecipeMatch</span>
+            <Link to="/" className="inline-flex flex-col items-center justify-center mb-8">
+              <img src="/logo-full.jpg" alt="The Smart Chef" className="h-24 w-auto mb-2" />
             </Link>
             <h2 className="text-3xl font-bold text-brand-black">Create an account</h2>
             <p className="mt-2 text-gray-600">Join us to get started</p>
