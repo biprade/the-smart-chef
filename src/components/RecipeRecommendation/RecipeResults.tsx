@@ -154,11 +154,11 @@ const RecipeResults = ({
 
       <div className="space-y-6">
         {recipes.map((recipe, index) => (
-          <div key={recipe.id} className={`stagger-${Math.min(index + 1, 4)}`}>
+          <div key={recipe.id || index} className={`stagger-${Math.min(index + 1, 4)}`}>
             <RecipeCard
               recipe={recipe}
               onSave={onSaveRecipe}
-              isSaved={savedRecipeIds.has(recipe.id)}
+              isSaved={recipe.id ? savedRecipeIds.has(recipe.id) : false}
             />
           </div>
         ))}

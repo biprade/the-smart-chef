@@ -24,7 +24,6 @@ const RecipeForm = () => {
   const [hasSearched, setHasSearched] = useState(false);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [error, setError] = useState<string>('');
-  const [userProfile, setUserProfile] = useState<string>('');
   const [savedRecipeIds, setSavedRecipeIds] = useState<Set<string>>(new Set());
 
   useEffect(() => {
@@ -37,9 +36,8 @@ const RecipeForm = () => {
 
     try {
       const profile = await getUserAIProfile(user.id);
-      if (profile?.personality_profile) {
-        setUserProfile(profile.personality_profile);
-      }
+      // Profile is loaded for future use in recipe recommendations
+      console.log('User profile loaded:', profile?.personality_profile ? 'Yes' : 'No');
     } catch (error) {
       console.error('Failed to load user profile:', error);
     }
@@ -106,12 +104,12 @@ const RecipeForm = () => {
     try {
       const recipesData = await getPersonalizedRecipes({
         ingredients,
-        mood,
-        energy,
-        cookingTime,
-        cuisine,
         dietaryRestrictions,
-        userProfile
+        cuisinePreferences: cuisine ? [cuisine] : [],
+        moodLevel: mood,
+        energyLevel: energy,
+        cookingTime: parseInt(cookingTime) || 60,
+        servings: 4
       });
 
       setRecipes(recipesData);
@@ -136,7 +134,7 @@ const RecipeForm = () => {
         .from('saved_recipes')
         .insert({
           user_id: user.id,
-          recipe_name: recipe.title,
+          recipe_name: recipe.title || recipe.name,
           recipe_json: recipe,
           cooked_count: 0,
           saved_at: new Date().toISOString()
@@ -144,7 +142,9 @@ const RecipeForm = () => {
 
       if (error) throw error;
 
-      setSavedRecipeIds((prev) => new Set([...prev, recipe.id]));
+      if (recipe.id) {
+        setSavedRecipeIds((prev) => new Set([...prev, recipe.id!]));
+      }
       showToast('Recipe saved successfully!', 'success');
     } catch (error: any) {
       console.error('Error saving recipe:', error);

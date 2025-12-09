@@ -120,6 +120,7 @@ const FeaturedRecipes = () => {
   const convertToFullRecipe = (recipe: Recipe): FullRecipe => {
     return {
       id: recipe.id,
+      name: recipe.title,
       title: recipe.title,
       description: recipe.description,
       prepTime: parseInt(recipe.prepTime),
@@ -127,7 +128,9 @@ const FeaturedRecipes = () => {
       totalTime: parseInt(recipe.prepTime) + 10,
       servings: 4,
       difficulty: recipe.difficulty as 'Easy' | 'Medium' | 'Hard',
+      cuisineType: recipe.cuisine,
       cuisine: recipe.cuisine,
+      dietaryInfo: [],
       ingredientMatch: 0,
       ingredients: [
         'Fresh seasonal ingredients',
@@ -175,7 +178,9 @@ const FeaturedRecipes = () => {
       throw new Error('Failed to save recipe');
     }
 
-    setSavedRecipeIds(prev => new Set(prev).add(recipe.id));
+    if (recipe.id) {
+      setSavedRecipeIds(prev => new Set(prev).add(recipe.id!));
+    }
   };
 
   return (
@@ -260,7 +265,7 @@ const FeaturedRecipes = () => {
           isOpen={!!selectedRecipe}
           onClose={() => setSelectedRecipe(null)}
           onSave={handleSaveRecipe}
-          isSaved={savedRecipeIds.has(selectedRecipe.id)}
+          isSaved={selectedRecipe.id ? savedRecipeIds.has(selectedRecipe.id) : false}
         />
       )}
     </div>

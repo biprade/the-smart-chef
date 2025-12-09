@@ -109,13 +109,19 @@ const Profile = () => {
   };
 
   const handleRegenerateProfile = async () => {
-    if (!user) return;
+    if (!user || !profile) return;
 
     setRegenerating(true);
     try {
-      const newProfile = await generateUserProfile(user.id);
+      const newProfile = await generateUserProfile(user.id, {
+        name: profile.name,
+        age_range: profile.age_range,
+        cuisine_preferences: profile.cuisine_preferences,
+        disliked_foods: profile.disliked_foods,
+        health_goals: profile.health_goals
+      });
       setAiProfile({
-        personality_profile: newProfile,
+        personality_profile: newProfile?.personality_profile || '',
         profile_strength: 1,
         version: (aiProfile?.version || 0) + 1,
         last_updated: new Date().toISOString()

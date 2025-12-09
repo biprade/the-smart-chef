@@ -76,14 +76,14 @@ const SavedRecipes = () => {
 
       switch (filter) {
         case 'quick':
-          return recipe.totalTime <= 30;
+          return (recipe.totalTime || 0) <= 30;
         case 'vegan':
           return recipe.tags?.some(tag =>
             tag.toLowerCase().includes('vegan') ||
             tag.toLowerCase().includes('plant-based')
-          ) || recipe.title.toLowerCase().includes('vegan');
+          ) || (recipe.title || recipe.name).toLowerCase().includes('vegan');
         case 'high-protein':
-          return recipe.nutrition?.protein >= 25;
+          return (recipe.nutrition?.protein || 0) >= 25;
         default:
           return true;
       }

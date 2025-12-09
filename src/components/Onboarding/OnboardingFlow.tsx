@@ -168,7 +168,15 @@ const OnboardingFlow = () => {
       }
 
       try {
-        await generateUserProfile(user.id);
+        await generateUserProfile(user.id, {
+          name: formData.name,
+          age_range: formData.ageRange,
+          gender: formData.gender,
+          ethnicity: formData.ethnicity,
+          cuisine_preferences: formData.cuisinePreferences,
+          disliked_foods: formData.dislikedFoods,
+          health_goals: formData.healthGoals
+        });
       } catch (profileGenError) {
         console.error('Failed to generate AI profile:', profileGenError);
       }

@@ -43,11 +43,11 @@ const RecipeDetail = ({ recipe, isOpen, onClose, onSave, isSaved = false, curren
   const servingRatio = servings / recipe.servings;
 
   const scaledNutrition = {
-    calories: Math.round(recipe.nutrition.calories * servingRatio),
-    protein: Math.round(recipe.nutrition.protein * servingRatio),
-    carbs: Math.round(recipe.nutrition.carbs * servingRatio),
-    fat: Math.round(recipe.nutrition.fat * servingRatio),
-    fiber: Math.round(recipe.nutrition.fiber * servingRatio)
+    calories: Math.round((recipe.nutrition?.calories || 0) * servingRatio),
+    protein: Math.round((recipe.nutrition?.protein || 0) * servingRatio),
+    carbs: Math.round((recipe.nutrition?.carbs || 0) * servingRatio),
+    fat: Math.round((recipe.nutrition?.fat || 0) * servingRatio),
+    fiber: Math.round((recipe.nutrition?.fiber || 0) * servingRatio)
   };
 
   const scaleIngredient = (ingredient: string): string => {
@@ -134,7 +134,7 @@ const RecipeDetail = ({ recipe, isOpen, onClose, onSave, isSaved = false, curren
       .from('user_recipe_history')
       .insert({
         user_id: user.id,
-        recipe_name: recipe.title,
+        recipe_name: recipe.title || recipe.name,
         recipe_json: recipe,
         rating: feedback.rating,
         liked_aspects: feedback.likedAspects,
@@ -148,14 +148,18 @@ const RecipeDetail = ({ recipe, isOpen, onClose, onSave, isSaved = false, curren
     }
 
     try {
-      await updateUserProfileFromFeedback(user.id);
+      await updateUserProfileFromFeedback(user.id, {
+        rating: feedback.rating,
+        liked_aspects: feedback.likedAspects,
+        feedback_text: feedback.improvements
+      });
     } catch (error) {
       console.error('Failed to update profile from feedback:', error);
     }
   };
 
   const funFacts = [
-    `This ${recipe.cuisine} dish combines flavors that complement your current mood perfectly!`,
+    `This ${recipe.cuisine || recipe.cuisineType || 'delicious'} dish combines flavors that complement your current mood perfectly!`,
     `The ingredients in this recipe work together to provide sustained energy throughout your day.`,
     `Fun fact: The combination of these ingredients creates a balanced nutritional profile.`,
     `This recipe's difficulty level matches your current energy, making it perfect for today!`,
@@ -199,7 +203,7 @@ const RecipeDetail = ({ recipe, isOpen, onClose, onSave, isSaved = false, curren
           <div className="px-8 py-6">
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">{recipe.title}</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">{recipe.title || recipe.name}</h2>
                 <p className="text-gray-600 text-lg">{recipe.description}</p>
               </div>
             </div>
@@ -231,7 +235,7 @@ const RecipeDetail = ({ recipe, isOpen, onClose, onSave, isSaved = false, curren
               </span>
 
               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-sage/20 text-sage-dark">
-                {recipe.cuisine}
+                {recipe.cuisine || recipe.cuisineType}
               </span>
 
               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
