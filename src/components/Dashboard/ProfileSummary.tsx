@@ -86,44 +86,18 @@ const ProfileSummary = () => {
     return 'text-gray-600 bg-gray-50';
   };
 
-  const formatProfileText = (text: string) => {
+  const extractKeyPoints = (text: string) => {
     const lines = text.split('\n').filter(line => line.trim());
-    const formattedElements: JSX.Element[] = [];
+    const points: string[] = [];
 
-    lines.forEach((line, index) => {
-      const trimmedLine = line.trim();
-
-      if (trimmedLine.startsWith('**') && trimmedLine.endsWith('**')) {
-        const content = trimmedLine.replace(/\*\*/g, '');
-        formattedElements.push(
-          <h3 key={index} className="font-semibold text-gray-900 mt-4 first:mt-0 mb-2">
-            {content}
-          </h3>
-        );
-      } else if (trimmedLine.match(/^[•\-\*]\s/)) {
-        const content = trimmedLine.replace(/^[•\-\*]\s/, '');
-        formattedElements.push(
-          <li key={index} className="text-gray-700 ml-4 mb-1.5">
-            {content}
-          </li>
-        );
-      } else if (trimmedLine.match(/^\d+\.\s/)) {
-        const content = trimmedLine.replace(/^\d+\.\s/, '');
-        formattedElements.push(
-          <li key={index} className="text-gray-700 ml-4 mb-1.5 list-decimal">
-            {content}
-          </li>
-        );
-      } else if (trimmedLine.length > 0) {
-        formattedElements.push(
-          <p key={index} className="text-gray-700 mb-2">
-            {trimmedLine}
-          </p>
-        );
+    lines.forEach(line => {
+      const trimmed = line.trim();
+      if (trimmed.match(/^[•\-\*]\s/) && points.length < 4) {
+        points.push(trimmed.replace(/^[•\-\*]\s/, ''));
       }
     });
 
-    return formattedElements;
+    return points.length > 0 ? points : [text.split('\n')[0]];
   };
 
   return (
@@ -140,8 +114,15 @@ const ProfileSummary = () => {
           {getStrengthLabel(profile.profile_strength)} Match
         </span>
       </div>
-      <div className="text-gray-700 leading-relaxed">
-        {formatProfileText(profile.personality_profile)}
+      <div className="space-y-2">
+        {extractKeyPoints(profile.personality_profile).map((point, idx) => (
+          <div key={idx} className="flex items-start space-x-2">
+            <svg className="w-5 h-5 text-sage flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+            </svg>
+            <p className="text-gray-700 text-sm">{point}</p>
+          </div>
+        ))}
       </div>
       <div className="mt-6 pt-4 border-t border-gray-200">
         <div className="flex items-center justify-between text-sm text-gray-500 mb-2">

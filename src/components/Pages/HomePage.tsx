@@ -60,12 +60,11 @@ const HomePage = () => {
 
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-brand-black mb-8 leading-tight">
                 Personalized Recipes Based on
-                <span className="block text-sage mt-2">Your Health, Favorite Ingredients & Lifestyle</span>
+                <span className="block text-sage mt-2">Your Ingredients, Mood & Health</span>
               </h1>
 
               <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-12 leading-relaxed">
-                Smart recipe recommendations tailored to your ingredients, mood, dietary needs, and lifestyle.
-                Your AI-powered cooking companion that learns and adapts to you.
+                Your AI cooking companion that learns your preferences and suggests perfect recipes.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
@@ -128,7 +127,7 @@ const HomePage = () => {
                 How It Works
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Four simple steps to discover your perfect meal
+                Four simple steps to your perfect meal
               </p>
             </div>
 
@@ -178,9 +177,6 @@ const HomePage = () => {
               <h2 className="text-4xl sm:text-5xl font-bold text-brand-black mb-6">
                 Why Choose The Smart Chef?
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                More than just a recipe app
-              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -229,10 +225,10 @@ const HomePage = () => {
         <section className="bg-sage py-24">
           <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              Ready to Transform Your Cooking?
+              Ready to Cook Smarter?
             </h2>
             <p className="text-xl text-white/90 mb-10">
-              Join thousands of home cooks discovering their perfect recipes every day
+              Join thousands discovering perfect recipes every day
             </p>
             <button
               onClick={handleGetStarted}
@@ -252,8 +248,7 @@ const HomePage = () => {
                 <img src="/logo-brand.jpg" alt="The Smart Chef" className="h-20 w-auto mb-4" />
               </div>
               <p className="text-gray-400 leading-relaxed text-base max-w-md">
-                Your AI-powered cooking companion that helps you discover perfect recipes
-                based on your health, your favorite ingredients, and your lifestyle.
+                AI-powered recipe recommendations tailored to your unique taste and lifestyle.
               </p>
             </div>
 
