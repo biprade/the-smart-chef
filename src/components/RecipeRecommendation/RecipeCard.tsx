@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Recipe } from '../../types/recipe';
+import { Recipe } from '../../types/recipe';
 import Card from '../Common/Card';
 import RecipeDetail from './RecipeDetail';
 import Button from '../Common/Button';
@@ -93,33 +93,31 @@ const RecipeCard = ({ recipe, onSave, isSaved = false }: RecipeCardProps) => {
           </span>
         </div>
 
-        {recipe.nutrition && (
-          <div className="bg-gray-50 rounded-lg p-4">
-            <h4 className="text-sm font-semibold text-gray-900 mb-2">Nutrition (per serving)</h4>
-            <div className="grid grid-cols-5 gap-3 text-center">
-              <div>
-                <div className="text-lg font-bold text-gray-900">{recipe.nutrition.calories}</div>
-                <div className="text-xs text-gray-500">Calories</div>
-              </div>
-              <div>
-                <div className="text-lg font-bold text-gray-900">{recipe.nutrition.protein}g</div>
-                <div className="text-xs text-gray-500">Protein</div>
-              </div>
-              <div>
-                <div className="text-lg font-bold text-gray-900">{recipe.nutrition.carbs}g</div>
-                <div className="text-xs text-gray-500">Carbs</div>
-              </div>
-              <div>
-                <div className="text-lg font-bold text-gray-900">{recipe.nutrition.fat}g</div>
-                <div className="text-xs text-gray-500">Fat</div>
-              </div>
-              <div>
-                <div className="text-lg font-bold text-gray-900">{recipe.nutrition.fiber}g</div>
-                <div className="text-xs text-gray-500">Fiber</div>
-              </div>
+        <div className="bg-gray-50 rounded-lg p-4">
+          <h4 className="text-sm font-semibold text-gray-900 mb-2">Nutrition (per serving)</h4>
+          <div className="grid grid-cols-5 gap-3 text-center">
+            <div>
+              <div className="text-lg font-bold text-gray-900">{recipe.nutrition.calories}</div>
+              <div className="text-xs text-gray-500">Calories</div>
+            </div>
+            <div>
+              <div className="text-lg font-bold text-gray-900">{recipe.nutrition.protein}g</div>
+              <div className="text-xs text-gray-500">Protein</div>
+            </div>
+            <div>
+              <div className="text-lg font-bold text-gray-900">{recipe.nutrition.carbs}g</div>
+              <div className="text-xs text-gray-500">Carbs</div>
+            </div>
+            <div>
+              <div className="text-lg font-bold text-gray-900">{recipe.nutrition.fat}g</div>
+              <div className="text-xs text-gray-500">Fat</div>
+            </div>
+            <div>
+              <div className="text-lg font-bold text-gray-900">{recipe.nutrition.fiber}g</div>
+              <div className="text-xs text-gray-500">Fiber</div>
             </div>
           </div>
-        )}
+        </div>
 
         {recipe.tags && recipe.tags.length > 0 && (
           <div className="flex flex-wrap gap-2">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useToast } from '../../contexts/ToastContext';
-import type { Recipe } from '../../types/recipe';
+import { Recipe } from '../../types/recipe';
 import Button from '../Common/Button';
 
 interface RecipeFeedbackProps {

@@ -1,4 +1,4 @@
-import type { Recipe } from '../../types/recipe';
+import { Recipe } from '../../types/recipe';
 import Card from '../Common/Card';
 import RecipeCard from './RecipeCard';
 import { RecipeCardSkeleton } from '../Common/SkeletonLoader';

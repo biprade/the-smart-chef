@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import type { Recipe } from '../../types/recipe';
+import { Recipe } from '../../types/recipe';
 import Button from '../Common/Button';
-import RecipeFeedback, { type RecipeFeedbackData } from './RecipeFeedback';
+import RecipeFeedback, { RecipeFeedbackData } from './RecipeFeedback';
 import { supabase } from '../../services/supabaseClient';
 import { updateUserProfileFromFeedback } from '../../services/openaiService';
 import { useAuth } from '../../contexts/AuthContext';
@@ -42,18 +42,12 @@ const RecipeDetail = ({ recipe, isOpen, onClose, onSave, isSaved = false, curren
 
   const servingRatio = servings / recipe.servings;
 
-  const scaledNutrition = recipe.nutrition ? {
+  const scaledNutrition = {
     calories: Math.round(recipe.nutrition.calories * servingRatio),
     protein: Math.round(recipe.nutrition.protein * servingRatio),
     carbs: Math.round(recipe.nutrition.carbs * servingRatio),
     fat: Math.round(recipe.nutrition.fat * servingRatio),
-    fiber: Math.round((recipe.nutrition.fiber || 0) * servingRatio)
-  } : {
-    calories: 0,
-    protein: 0,
-    carbs: 0,
-    fat: 0,
-    fiber: 0
+    fiber: Math.round(recipe.nutrition.fiber * servingRatio)
   };
 
   const scaleIngredient = (ingredient: string): string => {
@@ -154,7 +148,7 @@ const RecipeDetail = ({ recipe, isOpen, onClose, onSave, isSaved = false, curren
     }
 
     try {
-      await updateUserProfileFromFeedback(user.id, feedback);
+      await updateUserProfileFromFeedback(user.id);
     } catch (error) {
       console.error('Failed to update profile from feedback:', error);
     }

@@ -185,36 +185,38 @@ const OnboardingFlow = () => {
       case 1:
         return (
           <Step1
-            formData={{
+            data={{
               name: formData.name,
-              age_range: formData.ageRange,
+              ageRange: formData.ageRange,
               gender: formData.gender,
               ethnicity: formData.ethnicity
             }}
+            errors={errors}
             onChange={handleChange}
           />
         );
       case 2:
         return (
           <Step2
-            formData={{ dietary_restrictions: formData.dietaryRestrictions }}
+            data={{ dietaryRestrictions: formData.dietaryRestrictions }}
             onChange={handleChange}
           />
         );
       case 3:
         return (
           <Step3
-            formData={{
-              cuisine_preferences: formData.cuisinePreferences,
-              disliked_foods: formData.dislikedFoods
+            data={{
+              cuisinePreferences: formData.cuisinePreferences,
+              dislikedFoods: formData.dislikedFoods
             }}
+            errors={errors}
             onChange={handleChange}
           />
         );
       case 4:
         return (
           <Step4
-            formData={{ health_goals: formData.healthGoals }}
+            data={{ healthGoals: formData.healthGoals }}
             onChange={handleChange}
           />
         );
@@ -256,7 +258,7 @@ const OnboardingFlow = () => {
 
           <div className="flex justify-between pt-6 border-t border-gray-200">
             <Button
-              variant="secondary"
+              variant="outline"
               onClick={handleBack}
               disabled={currentStep === 1 || loading}
             >

@@ -1,5 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
-import type { KeyboardEvent } from 'react';
+import { useState, KeyboardEvent, useRef, useEffect } from 'react';
 
 interface IngredientInputProps {
   selectedIngredients: string[];
