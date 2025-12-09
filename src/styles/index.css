@@ -89,6 +89,17 @@
     }
   }
 
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   .animate-fadeIn {
     animation: fadeIn 0.3s ease-out;
   }
@@ -143,5 +154,9 @@
 
   .stagger-4 {
     animation-delay: 0.2s;
+  }
+
+  .animate-slideInRight {
+    animation: slideInRight 0.3s ease-out;
   }
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
+import { useToast } from '../../contexts/ToastContext';
 import DashboardLayout from '../Dashboard/DashboardLayout';
 import IngredientInput from './IngredientInput';
 import MoodEnergySelector from './MoodEnergySelector';
@@ -12,6 +13,7 @@ import { supabase } from '../../services/supabaseClient';
 
 const RecipeForm = () => {
   const { user } = useAuth();
+  const { showToast } = useToast();
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [mood, setMood] = useState('');
   const [energy, setEnergy] = useState('');
@@ -143,10 +145,10 @@ const RecipeForm = () => {
       if (error) throw error;
 
       setSavedRecipeIds((prev) => new Set([...prev, recipe.id]));
-      alert('Recipe saved successfully!');
+      showToast('Recipe saved successfully!', 'success');
     } catch (error: any) {
       console.error('Error saving recipe:', error);
-      alert('Failed to save recipe. Please try again.');
+      showToast('Failed to save recipe. Please try again.', 'error');
     }
   };
 
