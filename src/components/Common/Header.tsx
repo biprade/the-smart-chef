@@ -16,11 +16,11 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex justify-between items-center h-20">
           <div
-            className="flex items-center space-x-3 cursor-pointer"
+            className="flex items-center space-x-2 cursor-pointer"
             onClick={() => navigate(user ? '/dashboard' : '/')}
           >
-            <img src="/logo.jpg" alt="The Smart Chef" className="h-16 w-auto" />
-            <span className="text-2xl font-bold text-brand-black">The Smart Chef</span>
+            <img src="/logo.jpg" alt="The Smart Chef Logo" className="h-12 w-12 rounded-lg object-cover" />
+            <span className="text-xl font-bold text-brand-black">The Smart Chef</span>
           </div>
 
           <div className="flex items-center space-x-4">

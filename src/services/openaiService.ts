@@ -3,7 +3,7 @@ import { Recipe, RecipePreferences } from '../types/recipe';
 
 export const getUserAIProfile = async (userId: string) => {
   const { data, error } = await supabase
-    .from('ai_profiles')
+    .from('ai_user_profiles')
     .select('*')
     .eq('user_id', userId)
     .maybeSingle();
@@ -65,11 +65,11 @@ export const getPersonalizedRecipes = async (preferences: RecipePreferences): Pr
 
 export const updateUserProfileFromFeedback = async (userId: string, feedback: any) => {
   const { data, error } = await supabase
-    .from('ai_profiles')
+    .from('ai_user_profiles')
     .upsert({
       user_id: userId,
       ...feedback,
-      updated_at: new Date().toISOString(),
+      last_updated: new Date().toISOString(),
     })
     .select()
     .maybeSingle();
