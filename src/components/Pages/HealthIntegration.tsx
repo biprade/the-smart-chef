@@ -187,87 +187,6 @@ const HealthIntegration = () => {
         </div>
 
         <Card className="mb-8 bg-gradient-to-r from-sage/5 to-green-50 border-sage/20">
-          <div className="flex items-start space-x-4">
-            <div className="flex-shrink-0 text-3xl">🧠</div>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-900 mb-2">How We Use Your Health Data</h2>
-              <p className="text-gray-700 mb-3">
-                Your health data helps us build a deeper understanding of your lifestyle and create a truly personalized cooking experience.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex items-start space-x-2">
-                  <svg className="h-5 w-5 text-sage-dark mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <div>
-                    <h3 className="font-medium text-gray-900 text-sm">Learn Your Patterns</h3>
-                    <p className="text-xs text-gray-600">Understand when you're most active and need energy-rich meals</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <svg className="h-5 w-5 text-sage-dark mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <div>
-                    <h3 className="font-medium text-gray-900 text-sm">Smart Recommendations</h3>
-                    <p className="text-xs text-gray-600">Suggest what to eat or avoid based on your health metrics and goals</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <svg className="h-5 w-5 text-sage-dark mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <div>
-                    <h3 className="font-medium text-gray-900 text-sm">Personalized Feed</h3>
-                    <p className="text-xs text-gray-600">Refine your recipe feed based on your activity levels and recovery needs</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <svg className="h-5 w-5 text-sage-dark mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <div>
-                    <h3 className="font-medium text-gray-900 text-sm">Build Your Food Personality</h3>
-                    <p className="text-xs text-gray-600">Help us understand your lifestyle to match recipes to your unique needs</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Card>
-
-        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8 animate-slideDown">
-          <div className="flex">
-            <div className="flex-shrink-0">
-              <svg className="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-              </svg>
-            </div>
-            <div className="ml-3">
-              <h3 className="text-sm font-medium text-blue-800">Feature Preview</h3>
-              <p className="mt-1 text-sm text-blue-700">
-                These integrations are coming soon! Once connected, we'll analyze your health data to learn your patterns,
-                understand your food personality, and continuously refine your personalized recipe recommendations.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {healthApps.map((app, index) => (
-            <div key={app.type} className={`animate-slideUp stagger-${Math.min((index % 3) + 1, 4)}`}>
-              <IntegrationCard
-                name={app.name}
-                icon={app.icon}
-                description={app.description}
-                integration={getIntegration(app.type)}
-                onConnect={() => handleConnect(app.name)}
-              />
-            </div>
-          ))}
-        </div>
-
-        <Card className="mt-8">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Why Connect Health Apps?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex items-start space-x-3">
@@ -308,6 +227,38 @@ const HealthIntegration = () => {
             </div>
           </div>
         </Card>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8 animate-slideDown">
+          <div className="flex">
+            <div className="flex-shrink-0">
+              <svg className="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <div className="ml-3">
+              <h3 className="text-sm font-medium text-blue-800">Feature Preview</h3>
+              <p className="mt-1 text-sm text-blue-700">
+                These integrations are coming soon! Once connected, we'll analyze your health data to learn your patterns,
+                understand your food personality, and continuously refine your personalized recipe recommendations.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {healthApps.map((app, index) => (
+            <div key={app.type} className={`animate-slideUp stagger-${Math.min((index % 3) + 1, 4)}`}>
+              <IntegrationCard
+                name={app.name}
+                icon={app.icon}
+                description={app.description}
+                integration={getIntegration(app.type)}
+                onConnect={() => handleConnect(app.name)}
+              />
+            </div>
+          ))}
+        </div>
+
       </div>
     </DashboardLayout>
   );

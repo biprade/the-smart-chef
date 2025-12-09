@@ -60,7 +60,7 @@ const HomePage = () => {
 
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-brand-black mb-8 leading-tight">
                 Personalized Recipes Based on
-                <span className="block text-sage mt-2">Your Health, Favorite Ingredients & Life</span>
+                <span className="block text-sage mt-2">Your Health, Favorite Ingredients & Lifestyle</span>
               </h1>
 
               <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-12 leading-relaxed">
@@ -253,7 +253,7 @@ const HomePage = () => {
               </div>
               <p className="text-gray-400 leading-relaxed text-base max-w-md">
                 Your AI-powered cooking companion that helps you discover perfect recipes
-                based on your health, your favorite ingredients, and your life.
+                based on your health, your favorite ingredients, and your lifestyle.
               </p>
             </div>
 
