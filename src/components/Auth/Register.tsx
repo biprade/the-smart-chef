@@ -1,7 +1,8 @@
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState } from 'react';
+import type { FormEvent, ChangeEvent } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { validateEmail, checkPasswordStrength } from '../../utils/validation';
+import { validateEmail, getPasswordStrength } from '../../utils/validation';
 import Input from '../Common/Input';
 import Button from '../Common/Button';
 
@@ -14,7 +15,7 @@ const Register = () => {
   const [errors, setErrors] = useState<{ email?: string; password?: string; confirmPassword?: string; general?: string }>({});
   const [loading, setLoading] = useState(false);
 
-  const passwordStrength = password ? checkPasswordStrength(password) : null;
+  const passwordStrength = password ? getPasswordStrength(password) : null;
 
   const validateForm = (): boolean => {
     const newErrors: { email?: string; password?: string; confirmPassword?: string } = {};
@@ -51,15 +52,13 @@ const Register = () => {
 
     setLoading(true);
 
-    const { error } = await signUp(email, password);
-
-    if (error) {
-      setErrors({ general: error.message });
+    try {
+      await signUp(email, password);
+      navigate('/dashboard');
+    } catch (error: any) {
+      setErrors({ general: error.message || 'Failed to create account. Please try again.' });
       setLoading(false);
-      return;
     }
-
-    navigate('/dashboard');
   };
 
   return (

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Card from '../Common/Card';
 import RecipeDetail from '../RecipeRecommendation/RecipeDetail';
-import { Recipe as FullRecipe } from '../../types/recipe';
+import type { Recipe as FullRecipe } from '../../types/recipe';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../services/supabaseClient';
 import { getUserProfile } from '../../services/openaiService';

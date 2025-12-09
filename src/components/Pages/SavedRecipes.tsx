@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useToast } from '../../contexts/ToastContext';
 import { supabase } from '../../services/supabaseClient';
-import { Recipe } from '../../types/recipe';
+import type { Recipe } from '../../types/recipe';
 import Card from '../Common/Card';
 import Button from '../Common/Button';
 import DashboardLayout from '../Dashboard/DashboardLayout';
@@ -76,14 +76,14 @@ const SavedRecipes = () => {
 
       switch (filter) {
         case 'quick':
-          return recipe.totalTime <= 30;
+          return (recipe.totalTime || recipe.prepTime + recipe.cookTime) <= 30;
         case 'vegan':
           return recipe.tags?.some(tag =>
             tag.toLowerCase().includes('vegan') ||
             tag.toLowerCase().includes('plant-based')
           ) || recipe.title.toLowerCase().includes('vegan');
         case 'high-protein':
-          return recipe.nutrition?.protein >= 25;
+          return (recipe.nutrition?.protein || 0) >= 25;
         default:
           return true;
       }
@@ -241,7 +241,7 @@ const SavedRecipes = () => {
                     <div className="text-center">
                       <div className="text-xs text-gray-500 mb-1">Time</div>
                       <div className="text-sm font-semibold text-gray-900">
-                        {saved.recipe_json.totalTime}m
+                        {(saved.recipe_json.totalTime || saved.recipe_json.prepTime + saved.recipe_json.cookTime)}m
                       </div>
                     </div>
                     <div className="text-center">

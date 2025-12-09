@@ -88,7 +88,7 @@ const ProfileSummary = () => {
 
   const formatProfileText = (text: string) => {
     const lines = text.split('\n').filter(line => line.trim());
-    const formattedElements: JSX.Element[] = [];
+    const formattedElements: React.ReactElement[] = [];
 
     lines.forEach((line, index) => {
       const trimmedLine = line.trim();

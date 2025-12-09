@@ -27,3 +27,15 @@ export const getUserProfile = async (userId: string) => {
 
   return data;
 };
+
+export const updateUserProfileFromFeedback = async (_userId: string, _feedbackData: any) => {
+  return null;
+};
+
+export const generateUserProfile = async (userId: string) => {
+  return getUserProfile(userId);
+};
+
+export const getPersonalizedRecipes = async (_userId: string, _preferences: any) => {
+  return [];
+};

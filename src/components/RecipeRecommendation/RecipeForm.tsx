@@ -7,7 +7,7 @@ import MoodEnergySelector from './MoodEnergySelector';
 import RecipeResults from './RecipeResults';
 import Button from '../Common/Button';
 import Card from '../Common/Card';
-import { Recipe } from '../../types/recipe';
+import type { Recipe } from '../../types/recipe';
 import { getPersonalizedRecipes, getUserAIProfile } from '../../services/openaiService';
 import { supabase } from '../../services/supabaseClient';
 
@@ -103,8 +103,14 @@ const RecipeForm = () => {
     setHasSearched(true);
     setError('');
 
+    if (!user) {
+      setError('You must be logged in to search for recipes.');
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      const recipesData = await getPersonalizedRecipes({
+      const preferences = {
         ingredients,
         mood,
         energy,
@@ -112,7 +118,9 @@ const RecipeForm = () => {
         cuisine,
         dietaryRestrictions,
         userProfile
-      });
+      };
+
+      const recipesData = await getPersonalizedRecipes(user.id, preferences);
 
       setRecipes(recipesData);
 
