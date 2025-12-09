@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Card from '../Common/Card';
 import RecipeDetail from '../RecipeRecommendation/RecipeDetail';
 import { Recipe as FullRecipe } from '../../types/recipe';
+import { useAuth } from '../../contexts/AuthContext';
+import { supabase } from '../../services/supabaseClient';
 
 interface Recipe {
   id: string;
@@ -53,7 +55,29 @@ const mockRecipes: Recipe[] = [
 ];
 
 const FeaturedRecipes = () => {
+  const { user } = useAuth();
   const [selectedRecipe, setSelectedRecipe] = useState<FullRecipe | null>(null);
+  const [savedRecipeIds, setSavedRecipeIds] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    if (user) {
+      loadSavedRecipes();
+    }
+  }, [user]);
+
+  const loadSavedRecipes = async () => {
+    if (!user) return;
+
+    const { data, error } = await supabase
+      .from('saved_recipes')
+      .select('recipe_data')
+      .eq('user_id', user.id);
+
+    if (!error && data) {
+      const ids = new Set(data.map((item: any) => item.recipe_data.id));
+      setSavedRecipeIds(ids);
+    }
+  };
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty.toLowerCase()) {
@@ -105,6 +129,25 @@ const FeaturedRecipes = () => {
 
   const handleRecipeClick = (recipe: Recipe) => {
     setSelectedRecipe(convertToFullRecipe(recipe));
+  };
+
+  const handleSaveRecipe = async (recipe: FullRecipe) => {
+    if (!user) {
+      throw new Error('You must be logged in to save recipes');
+    }
+
+    const { error } = await supabase
+      .from('saved_recipes')
+      .insert({
+        user_id: user.id,
+        recipe_data: recipe
+      });
+
+    if (error) {
+      throw new Error(`Failed to save recipe: ${error.message}`);
+    }
+
+    setSavedRecipeIds(prev => new Set(prev).add(recipe.id));
   };
 
   return (
@@ -182,7 +225,8 @@ const FeaturedRecipes = () => {
           recipe={selectedRecipe}
           isOpen={!!selectedRecipe}
           onClose={() => setSelectedRecipe(null)}
-          isSaved={false}
+          onSave={handleSaveRecipe}
+          isSaved={savedRecipeIds.has(selectedRecipe.id)}
         />
       )}
     </div>
