@@ -86,6 +86,46 @@ const ProfileSummary = () => {
     return 'text-gray-600 bg-gray-50';
   };
 
+  const formatProfileText = (text: string) => {
+    const lines = text.split('\n').filter(line => line.trim());
+    const formattedElements: JSX.Element[] = [];
+
+    lines.forEach((line, index) => {
+      const trimmedLine = line.trim();
+
+      if (trimmedLine.startsWith('**') && trimmedLine.endsWith('**')) {
+        const content = trimmedLine.replace(/\*\*/g, '');
+        formattedElements.push(
+          <h3 key={index} className="font-semibold text-gray-900 mt-4 first:mt-0 mb-2">
+            {content}
+          </h3>
+        );
+      } else if (trimmedLine.match(/^[•\-\*]\s/)) {
+        const content = trimmedLine.replace(/^[•\-\*]\s/, '');
+        formattedElements.push(
+          <li key={index} className="text-gray-700 ml-4 mb-1.5">
+            {content}
+          </li>
+        );
+      } else if (trimmedLine.match(/^\d+\.\s/)) {
+        const content = trimmedLine.replace(/^\d+\.\s/, '');
+        formattedElements.push(
+          <li key={index} className="text-gray-700 ml-4 mb-1.5 list-decimal">
+            {content}
+          </li>
+        );
+      } else if (trimmedLine.length > 0) {
+        formattedElements.push(
+          <p key={index} className="text-gray-700 mb-2">
+            {trimmedLine}
+          </p>
+        );
+      }
+    });
+
+    return formattedElements;
+  };
+
   return (
     <Card className="animate-fadeIn">
       <div className="flex items-start justify-between mb-4">
@@ -100,9 +140,9 @@ const ProfileSummary = () => {
           {getStrengthLabel(profile.profile_strength)} Match
         </span>
       </div>
-      <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-        {profile.personality_profile}
-      </p>
+      <div className="text-gray-700 leading-relaxed">
+        {formatProfileText(profile.personality_profile)}
+      </div>
       <div className="mt-6 pt-4 border-t border-gray-200">
         <div className="flex items-center justify-between text-sm text-gray-500 mb-2">
           <span>Profile Strength</span>

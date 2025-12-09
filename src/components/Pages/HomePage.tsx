@@ -20,7 +20,7 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3">
-              <img src="/logo.jpg" alt="The Smart Chef" className="h-12 w-auto" />
+              <img src="/logo.jpg" alt="The Smart Chef" className="h-16 w-auto" />
               <span className="text-2xl font-bold text-brand-black">The Smart Chef</span>
             </div>
 
@@ -250,7 +250,7 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <img src="/logo.jpg" alt="The Smart Chef" className="h-12 w-auto" />
+                <img src="/logo.jpg" alt="The Smart Chef" className="h-16 w-auto" />
                 <span className="text-2xl font-bold">The Smart Chef</span>
               </div>
               <p className="text-gray-400 leading-relaxed text-base max-w-md">

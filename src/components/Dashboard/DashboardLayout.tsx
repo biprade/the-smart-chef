@@ -38,7 +38,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <div className="flex items-center space-x-3">
-                <img src="/logo.jpg" alt="The Smart Chef" className="h-10 w-auto" />
+                <img src="/logo.jpg" alt="The Smart Chef" className="h-14 w-auto" />
                 <h1 className="text-xl font-bold text-gray-900">The Smart Chef</h1>
               </div>
               <div className="hidden md:flex space-x-1">

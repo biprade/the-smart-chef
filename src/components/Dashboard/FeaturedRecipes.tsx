@@ -4,6 +4,7 @@ import RecipeDetail from '../RecipeRecommendation/RecipeDetail';
 import { Recipe as FullRecipe } from '../../types/recipe';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../services/supabaseClient';
+import { getUserProfile } from '../../services/openaiService';
 
 interface Recipe {
   id: string;
@@ -58,12 +59,36 @@ const FeaturedRecipes = () => {
   const { user } = useAuth();
   const [selectedRecipe, setSelectedRecipe] = useState<FullRecipe | null>(null);
   const [savedRecipeIds, setSavedRecipeIds] = useState<Set<string>>(new Set());
+  const [userProfile, setUserProfile] = useState<any>(null);
+  const [filteredRecipes, setFilteredRecipes] = useState<Recipe[]>(mockRecipes);
 
   useEffect(() => {
     if (user) {
       loadSavedRecipes();
+      loadUserProfile();
     }
   }, [user]);
+
+  const loadUserProfile = async () => {
+    if (!user) return;
+
+    try {
+      const profile = await getUserProfile(user.id);
+      setUserProfile(profile);
+
+      if (profile?.dietary_restrictions && profile.dietary_restrictions.length > 0) {
+        const filtered = mockRecipes.filter(recipe => {
+          const recipeLower = recipe.title.toLowerCase() + ' ' + recipe.description.toLowerCase();
+          return !profile.dietary_restrictions.some((restriction: string) =>
+            recipeLower.includes(restriction.toLowerCase())
+          );
+        });
+        setFilteredRecipes(filtered);
+      }
+    } catch (error) {
+      console.error('Error loading user profile:', error);
+    }
+  };
 
   const loadSavedRecipes = async () => {
     if (!user) return;
@@ -163,7 +188,7 @@ const FeaturedRecipes = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {mockRecipes.map((recipe) => (
+        {filteredRecipes.map((recipe) => (
           <Card
             key={recipe.id}
             className="group cursor-pointer hover:shadow-lg transition-shadow duration-200"
@@ -218,9 +243,15 @@ const FeaturedRecipes = () => {
       </div>
 
       <div className="mt-8 text-center">
-        <p className="text-gray-500 text-sm">
-          Personalized recommendations coming soon based on your profile!
-        </p>
+        {userProfile?.dietary_restrictions && userProfile.dietary_restrictions.length > 0 ? (
+          <p className="text-gray-500 text-sm">
+            Showing recipes that match your dietary preferences (avoiding: {userProfile.dietary_restrictions.join(', ')})
+          </p>
+        ) : (
+          <p className="text-gray-500 text-sm">
+            Personalized recommendations based on your profile!
+          </p>
+        )}
       </div>
 
       {selectedRecipe && (
