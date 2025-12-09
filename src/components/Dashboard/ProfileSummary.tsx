@@ -65,7 +65,7 @@ const ProfileSummary = () => {
             Profile Not Ready
           </h3>
           <p className="text-gray-600 text-sm">
-            Your personalized food profile is being generated. Check back soon!
+            Your taste profile is being generated. Check back soon!
           </p>
         </div>
       </Card>
@@ -130,7 +130,7 @@ const ProfileSummary = () => {
     <Card className="animate-fadeIn">
       <div className="flex items-start justify-between mb-4">
         <h2 className="text-xl font-semibold text-gray-900">
-          Your Food Personality
+          Taste Profile
         </h2>
         <span
           className={`px-3 py-1 text-xs font-medium rounded-full transition-all ${getStrengthColor(

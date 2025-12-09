@@ -239,7 +239,7 @@ const HealthIntegration = () => {
               <h3 className="text-sm font-medium text-blue-800">Feature Preview</h3>
               <p className="mt-1 text-sm text-blue-700">
                 These integrations are coming soon! Once connected, we'll analyze your health data to learn your patterns,
-                understand your food personality, and continuously refine your personalized recipe recommendations.
+                build your taste profile, and continuously refine your personalized recipe recommendations.
               </p>
             </div>
           </div>
