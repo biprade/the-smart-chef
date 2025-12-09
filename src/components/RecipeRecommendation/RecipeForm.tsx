@@ -110,7 +110,7 @@ const RecipeForm = () => {
         energyLevel: energy,
         cookingTime: parseInt(cookingTime) || 60,
         servings: 4
-      });
+      }, user?.id);
 
       setRecipes(recipesData);
 
